@@ -1,8 +1,15 @@
 public class EnemyPokemon implements Pokemon{
 
+
     private int lostHp;
     private int hp;
     private int level;
+
+    public EnemyPokemon(int level, int hp, int lostHp) {
+        this.lostHp = lostHp;
+        this.hp = hp;
+        this.level = level;
+    }
 
     @Override
     public boolean isAlive() {
