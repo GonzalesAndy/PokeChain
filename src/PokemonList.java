@@ -18,8 +18,8 @@ public enum PokemonList {
     MAGMORTAR(25, 0.2, 2),
     GARCHOMP(26, 0.3, 1.3),
     TYRANITAR(27, 0.2, 2),
-    DRAGONITE(28, 0.3, 2.1),
-    MEW(30, 3, 0.5);
+    DARKRAI(28, 0.3, 2.1),
+    MEWTWO(30, 3, 0.5);
 
     private final int level;
     private final double coeffAttack;
