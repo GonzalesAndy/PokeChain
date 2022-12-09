@@ -13,9 +13,7 @@ public class Charmander extends AllyPokemon{
     }
 
     @Override
-    public void levelUp() {
-
-    }
+    public void levelUp() { super.setLevel(super.getLevel()+1);}
 
     @Override
     public boolean isAlive() {
