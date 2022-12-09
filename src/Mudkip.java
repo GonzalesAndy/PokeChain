@@ -14,7 +14,7 @@ public class Mudkip extends AllyPokemon{
 
     @Override
     public void levelUp() {
-
+        super.setLevel(super.getLevel()+1);
     }
 
     @Override
