@@ -1,14 +1,14 @@
 public class EnemyPokemon implements Pokemon{
 
 
-    private int lostHp;
-    private int hp;
+    private double lostHp;
+    private double hp;
     private int level;
 
-    public EnemyPokemon(int level, int hp, int lostHp) {
-        this.lostHp = lostHp;
-        this.hp = hp;
-        this.level = level;
+    public EnemyPokemon(PokemonList pokemonList) {
+        this.lostHp = 0;
+        this.hp = pokemonList.getCoeffHP();
+        this.level = pokemonList.getLevel();
     }
 
     @Override
@@ -16,7 +16,7 @@ public class EnemyPokemon implements Pokemon{
         return hp - lostHp > 0;
     }
 
-    public int getLostHp() {
+    public double getLostHp() {
         return lostHp;
     }
 
@@ -24,7 +24,7 @@ public class EnemyPokemon implements Pokemon{
         this.lostHp = lostHp;
     }
 
-    public int getHp() {
+    public double getHp() {
         return hp;
     }
 
