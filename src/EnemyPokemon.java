@@ -1,5 +1,6 @@
 public class EnemyPokemon implements Pokemon{
 
+    private double attackDmg;
     private String name;
     private double lostHp;
     private double hp;
@@ -12,7 +13,14 @@ public class EnemyPokemon implements Pokemon{
         this.lostHp = 0;
         this.level = pokemonList.getLevel();
         this.hp = pokemonList.getCoeffHP()*level;
+        this.attackDmg = pokemonList.getCoeffAttack()*level;
     }
+
+    public void attack(AllyPokemon allyPokemon) {
+        System.out.println(this.getName()+" attacked you");
+        allyPokemon.setLostHp((allyPokemon.getLostHp()+this.getAttackDmg()));
+    }
+
 
     @Override
     public boolean isAlive() {
@@ -23,7 +31,7 @@ public class EnemyPokemon implements Pokemon{
         return lostHp;
     }
 
-    public void setLostHp(int lostHp) {
+    public void setLostHp(double lostHp) {
         this.lostHp = lostHp;
     }
 
@@ -35,8 +43,13 @@ public class EnemyPokemon implements Pokemon{
         return level;
     }
 
+
+
     public String getName() {
         return name;
     }
 
+    public double getAttackDmg() {
+        return attackDmg;
+    }
 }

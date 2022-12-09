@@ -33,17 +33,25 @@ public class Combat {
             while (enemy.isAlive()) {
 
                 Scanner input = new Scanner(System.in);
-                System.out.println("What do you want to do ? \n Attack ? (enter A) \n Defend ? (enter D)");
+                System.out.println("What do you want to do ? \n Attack ? (enter A) \n Defend ? (enter D) \n Heal ? (enter H)");
                 String action = input.nextLine();
                 switch (action) {
                     case "A":
                         starter.attack(enemy);
                         System.out.println(enemy.getName() + " has " + (enemy.getHp() - enemy.getLostHp()) + " HP");
+                    case "H":
+                        starter.setLostHp(0);
+                    case "D":
+                        break;
                 }
-
+                enemy.attack(starter);
+                System.out.println("lost hp "+starter.getLostHp());
+                System.out.println("Your Pokemon has "+(starter.getHp()-starter.getLostHp())+ " HP");
+                if (!starter.isAlive()) break;
             }
             starter.levelUp();
         }
+        System.out.println("Votre pokémon est mort vous avez perdu");
     }
     public EnemyPokemon spawnEnemy() {
         return new EnemyPokemon(PokemonList.valueOf(starter.getLevel()).get());

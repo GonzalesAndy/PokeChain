@@ -1,7 +1,7 @@
 public abstract class AllyPokemon implements Pokemon{
     private int level;
-    private int hp = 1;
-    private int lostHp;
+    private double hp = 1;
+    private double lostHp;
     public AllyPokemon(int level) {
         this.level = level;
         this.hp = hp;
@@ -20,19 +20,19 @@ public abstract class AllyPokemon implements Pokemon{
         this.level = level;
     }
 
-    public int getHp() {
+    public double getHp() {
         return hp;
     }
 
-    public void setHp(int hp) {
+    public void setHp(double hp) {
         this.hp = hp;
     }
 
-    public int getLostHp() {
+    public double getLostHp() {
         return lostHp;
     }
 
-    public void setLostHp(int lostHp) {
+    public void setLostHp(double lostHp) {
         this.lostHp = lostHp;
     }
 
