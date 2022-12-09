@@ -15,9 +15,10 @@ public class Charmander extends AllyPokemon{
         if (Math.random() <= accuracy){
             System.out.println("Charmander missed his attack");
         }
-        System.out.println("Charmander use Flameech !");
-        enemyPokemon.setLostHp(getLostHp()+((int)(coeffAttack*super.getLevel())));
-    }
+        else {
+            System.out.println("Charmander use Flameech !");
+            enemyPokemon.setLostHp(getLostHp()+((int)(coeffAttack*super.getLevel())));
+        } }
 
     @Override
     public void levelUp() { super.setLevel(super.getLevel()+1);}

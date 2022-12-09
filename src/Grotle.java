@@ -1,3 +1,4 @@
+import java.lang.Math;
 public class Grotle extends AllyPokemon{
 
     private final double coeffAttack = 2.5;
@@ -12,9 +13,13 @@ public class Grotle extends AllyPokemon{
 
     @Override
     public void attack(EnemyPokemon enemyPokemon) {
-        System.out.println("Grotle use Energy Ball !");
-        enemyPokemon.setLostHp(getLostHp()+((int)(coeffAttack*super.getLevel())));
-    }
+        if (Math.random() <= accuracy){
+            System.out.println("Grotle missed his attack");
+        }
+        else {
+            System.out.println("Grotle use Energy Ball !");
+            enemyPokemon.setLostHp(getLostHp()+((int)(coeffAttack*super.getLevel())));
+        } }
 
     @Override
     public void levelUp() {

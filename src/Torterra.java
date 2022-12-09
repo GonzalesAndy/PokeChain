@@ -1,3 +1,4 @@
+import java.lang.Math;
 public class Torterra extends AllyPokemon{
 
     public final double coeffAttack = 3;
@@ -12,9 +13,13 @@ public class Torterra extends AllyPokemon{
 
     @Override
     public void attack(EnemyPokemon enemyPokemon) {
-        System.out.println("Torterra use Leaf Storm !");
-        enemyPokemon.setLostHp(getLostHp()+((int)(coeffAttack*super.getLevel())));
-    }
+        if (Math.random() <= accuracy){
+            System.out.println("Torterra missed his attack");
+        }
+        else {
+            System.out.println("Torterra use Leaf Storm !");
+            enemyPokemon.setLostHp(getLostHp()+((int)(coeffAttack*super.getLevel())));
+        } }
 
     @Override
     public void levelUp() {

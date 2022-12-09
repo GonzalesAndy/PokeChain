@@ -1,3 +1,4 @@
+import java.lang.Math;
 public class Charmeleon extends AllyPokemon{
 
     private final double coeffAttack = 2.5;
@@ -12,9 +13,13 @@ public class Charmeleon extends AllyPokemon{
 
     @Override
     public void attack(EnemyPokemon enemyPokemon) {
-        System.out.println("Charmeleon use Flamethrower !");
-        enemyPokemon.setLostHp(getLostHp()+((int)(coeffAttack*super.getLevel())));
-    }
+        if (Math.random() <= accuracy){
+            System.out.println("Charmeleon missed his attack");
+        }
+        else {
+            System.out.println("Charmeleon use FlameThrower !");
+            enemyPokemon.setLostHp(getLostHp()+((int)(coeffAttack*super.getLevel())));
+        } }
 
     @Override
     public void levelUp() {
