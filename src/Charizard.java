@@ -9,7 +9,7 @@ public class Charizard extends AllyPokemon{
 
     @Override
     public void attack(EnemyPokemon enemyPokemon) {
-        System.out.println("Charmeleon use Flamethrower !");
+        System.out.println("Charizard use Inferno !");
         enemyPokemon.setLostHp(getLostHp()+((int)(coeffAttack*super.getLevel())));
     }
 
