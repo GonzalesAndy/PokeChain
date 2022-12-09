@@ -1,6 +1,6 @@
 public class Torterra extends AllyPokemon{
-    public final double coeffAttack = 2;
-    public final int coeffHp = 2;
+    public final double coeffAttack = 3;
+    public final int coeffHp = 4;
     public Torterra(int level) {
         super(level);
         super.setHp(getLevel()*coeffHp);
