@@ -1,6 +1,9 @@
 public class Mudkip extends AllyPokemon{
-    public final double coeffAttack = 2;
-    public final int coeffHp = 2;
+
+    private final double coeffAttack = 2;
+    private final int coeffHp = 2;
+
+    private final double accuracy = 0.3;
     public Mudkip(int level) {
         super(level);
         super.setHp(getLevel()*coeffHp);

@@ -1,6 +1,9 @@
 public class Swampert extends AllyPokemon{
-    public final double coeffAttack = 3;
-    public final int coeffHp = 4;
+
+    private final double coeffAttack = 3;
+    private final int coeffHp = 4;
+
+    private final double accuracy = 0.1;
     public Swampert(int level) {
         super(level);
         super.setHp(getLevel()*coeffHp);
