@@ -23,7 +23,7 @@ public enum PokemonList {
     GARCHOMP(22, 0.3, 1.3),
     TYRANITAR(23, 0.2, 2),
     DARKRAI(24, 0.3, 2),
-    MEWTWO(25, 3, 1.5);
+    MEWTWO(25, 3, 1.2);
 
     private final int level;
     private final double coeffAttack;
