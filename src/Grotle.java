@@ -1,6 +1,10 @@
 public class Grotle extends AllyPokemon{
-    public final double coeffAttack = 2.5;
-    public final int coeffHp = 3;
+
+    private final double coeffAttack = 2.5;
+    private final int coeffHp = 3;
+
+    private final double accuracy = 0.2;
+
     public Grotle(int level) {
         super(level);
         super.setHp(getLevel()*coeffHp);
