@@ -5,7 +5,7 @@ public class Combat {
 
     public Combat(AllyPokemon starter) {
         this.starter = starter;
-
+        fight();
 
     }
 
@@ -26,10 +26,26 @@ public class Combat {
     }
 
     public void fight() {
-        
+        while (starter.isAlive()) {
+            EnemyPokemon enemy = spawnEnemy();
+            System.out.println("Your opponent is " + enemy.getName());
+            System.out.println(enemy.getName() + " has " + enemy.getHp() + " HP");
+            while (enemy.isAlive()) {
+
+                Scanner input = new Scanner(System.in);
+                System.out.println("What do you want to do ? \n Attack ? (enter A) \n Defend ? (enter D)");
+                String action = input.nextLine();
+                switch (action) {
+                    case "A":
+                        starter.attack(enemy);
+                        System.out.println(enemy.getName() + " has " + (enemy.getHp() - enemy.getLostHp()) + " HP");
+                }
+
+            }
+            starter.levelUp();
+        }
     }
-
-
-
-
+    public EnemyPokemon spawnEnemy() {
+        return new EnemyPokemon(PokemonList.valueOf(starter.getLevel()).get());
+    }
 }

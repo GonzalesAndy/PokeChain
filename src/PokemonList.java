@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Optional;
+
 public enum PokemonList {
 
     ZUBAT(5, 0.2, 1),
@@ -8,7 +11,7 @@ public enum PokemonList {
     SCOLIPEDE(10, 0.5, 1.7),
     ZOROARK(11, 0.7, 1.7),
     BISHARP(12, 0.3, 1.4),
-    MELMETAL(13, 0.1, 2.1),
+    MELMETAL(13, 0.1, 1.9),
     COALOSSAL(14, 0.4, 1.4),
     TOXTRICITY(15, 0.3, 1.4),
     BAXCALIBUR(16, 0.2, 2),
@@ -16,11 +19,11 @@ public enum PokemonList {
     SEISMITOAD(18, 0.3, 1.2),
     DUSKNOIR(19, 0.5, 1.1),
     MAGMORTAR(20, 0.2, 2),
-    GENGAR(21, 0.15, 2.1),
+    GENGAR(21, 0.15, 2),
     GARCHOMP(22, 0.3, 1.3),
     TYRANITAR(23, 0.2, 2),
-    DARKRAI(24, 0.3, 2.1),
-    MEWTWO(25, 3, 0.5);
+    DARKRAI(24, 0.3, 2),
+    MEWTWO(25, 3, 1.5);
 
     private final int level;
     private final double coeffAttack;
@@ -44,6 +47,12 @@ public enum PokemonList {
 
     public double getCoeffHP() {
         return coeffHP;
+    }
+
+    public static Optional<PokemonList> valueOf(double level) {
+        return Arrays.stream(values())
+                .filter(PokemonList -> PokemonList.level == level)
+                .findFirst();
     }
 
 }
