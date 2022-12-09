@@ -1,3 +1,4 @@
+import java.lang.Math;
 public class Swampert extends AllyPokemon{
 
     private final double coeffAttack = 3;
@@ -11,9 +12,13 @@ public class Swampert extends AllyPokemon{
 
     @Override
     public void attack(EnemyPokemon enemyPokemon) {
-        System.out.println("Swampert use Hydroblast !");
-        enemyPokemon.setLostHp(getLostHp()+((int)(coeffAttack*super.getLevel())));
-    }
+        if (Math.random() <= accuracy){
+            System.out.println("Swampert missed his attack");
+        }
+        else {
+            System.out.println("Swampert use Hydroblast !");
+            enemyPokemon.setLostHp(getLostHp()+((int)(coeffAttack*super.getLevel())));
+        } }
 
     @Override
     public void levelUp() {

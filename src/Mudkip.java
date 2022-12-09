@@ -1,3 +1,4 @@
+import java.lang.Math;
 public class Mudkip extends AllyPokemon{
 
     private final double coeffAttack = 2;
@@ -11,9 +12,13 @@ public class Mudkip extends AllyPokemon{
 
     @Override
     public void attack(EnemyPokemon enemyPokemon) {
-        System.out.println("Mudkip use pisstolow !");
-        enemyPokemon.setLostHp(getLostHp()+((int)(coeffAttack*super.getLevel())));
-    }
+        if (Math.random() <= accuracy){
+            System.out.println("Mudkip missed his attack");
+        }
+        else {
+            System.out.println("Mudkip use pisstolow !");
+            enemyPokemon.setLostHp(getLostHp()+((int)(coeffAttack*super.getLevel())));
+        } }
 
     @Override
     public void levelUp() {
