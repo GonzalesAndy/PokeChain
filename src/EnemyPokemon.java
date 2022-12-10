@@ -27,6 +27,12 @@ public class EnemyPokemon implements Pokemon{
         return hp - lostHp > 0;
     }
 
+    @Override
+    public String remainingHp() {
+        double remaining = this.getHp()-this.getLostHp();
+        return String.format("%.2f", remaining);
+    }
+
     public double getLostHp() {
         return lostHp;
     }

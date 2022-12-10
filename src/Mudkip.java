@@ -18,7 +18,8 @@ public class Mudkip extends AllyPokemon{
         else {
             System.out.println("Mudkip use pisstolow !");
             enemyPokemon.setLostHp(getLostHp()+((int)(coeffAttack*super.getLevel())));
-        } }
+        }
+    }
 
     @Override
     public void levelUp() {

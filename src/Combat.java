@@ -15,10 +15,13 @@ public class Combat {
         String name = input.nextLine();
         switch (name) {
             case "Mudkip":
+                System.out.println("You chose Mudkip");
                 return new Combat(new Mudkip(5));
             case "Charmander":
+                System.out.println("You chose Charmander");
                 return new Combat(new Charmander(5));
             case "Turtwig":
+                System.out.println("You chose Turtwig");
                 return new Combat(new Turtwig(5));
 
         }
@@ -29,24 +32,26 @@ public class Combat {
         while (starter.isAlive()) {
             EnemyPokemon enemy = spawnEnemy();
             System.out.println("Your opponent is " + enemy.getName());
-            System.out.println(enemy.getName() + " has " + enemy.getHp() + " HP");
+            System.out.println(enemy.getName() + " has " + enemy.remainingHp() + " HP");
             while (enemy.isAlive()) {
 
                 Scanner input = new Scanner(System.in);
-                System.out.println("What do you want to do ? \n Attack ? (enter A) \n Defend ? (enter D) \n Heal ? (enter H)");
+                System.out.println("What do you want to do ? \n Attack ? (enter A) \n Defend ? (enter D) \n Heal ? (enter H) \n");
                 String action = input.nextLine();
                 switch (action) {
                     case "A":
                         starter.attack(enemy);
-                        System.out.println(enemy.getName() + " has " + (enemy.getHp() - enemy.getLostHp()) + " HP");
+                        System.out.println(enemy.getName() + " has " + enemy.remainingHp()+ " HP \n");
+                        break;
                     case "H":
                         starter.setLostHp(0);
+                        System.out.println("Your Pokemon is fully healed he has now "+ starter.getHp() + " HP");
+                        break;
                     case "D":
                         break;
                 }
                 enemy.attack(starter);
-                System.out.println("lost hp "+starter.getLostHp());
-                System.out.println("Your Pokemon has "+(starter.getHp()-starter.getLostHp())+ " HP");
+                System.out.println("Your Pokemon has "+starter.remainingHp()+ " HP");
                 if (!starter.isAlive()) break;
             }
             starter.levelUp();

@@ -36,5 +36,9 @@ public abstract class AllyPokemon implements Pokemon{
         this.lostHp = lostHp;
     }
 
+    public String remainingHp() {
+        double remaining = this.getHp()-this.getLostHp();
+        return String.format("%.2f", remaining);
+    }
 
 }

@@ -18,7 +18,8 @@ public class Swampert extends AllyPokemon{
         else {
             System.out.println("Swampert use Hydroblast !");
             enemyPokemon.setLostHp(getLostHp()+((int)(coeffAttack*super.getLevel())));
-        } }
+        }
+    }
 
     @Override
     public void levelUp() {
