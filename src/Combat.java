@@ -20,7 +20,7 @@ public class Combat {
             case "Charmander":
                 System.out.println("You chose Charmander");
                 return new Combat(new FireType(5));
-            case "TurtWig":
+            case "Turtwig":
                 System.out.println("You chose TurtWig");
                 return new Combat(new GrassType(5));
         }
