@@ -1,4 +1,4 @@
-public class EnemyPokemon implements Pokemon{
+public class EnemyPokemon implements Pokemon<AllyPokemon>{
 
     private double attackDmg;
     private String name;

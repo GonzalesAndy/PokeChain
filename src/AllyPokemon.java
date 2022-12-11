@@ -1,15 +1,17 @@
-public abstract class AllyPokemon implements Pokemon{
+public abstract class AllyPokemon implements Pokemon<EnemyPokemon>{
     private int level;
+
+    private String attackName;
+    private String name;
     private double hp = 1;
-    private double lostHp;
+    private double lostHp = 0;
     public AllyPokemon(int level) {
         this.level = level;
-        this.hp = hp;
-        this.lostHp = lostHp;
     }
 
     public abstract void attack(EnemyPokemon enemyPokemon);
 
+    protected abstract void changeStats();
     public abstract void levelUp();
 
     public int getLevel() {
@@ -36,9 +38,30 @@ public abstract class AllyPokemon implements Pokemon{
         this.lostHp = lostHp;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAttackName() {
+        return attackName;
+    }
+
+    public void setAttackName(String attackName) {
+        this.attackName = attackName;
+    }
+
     public String remainingHp() {
         double remaining = this.getHp()-this.getLostHp();
         return String.format("%.2f", remaining);
     }
+
+
+
+
+
 
 }

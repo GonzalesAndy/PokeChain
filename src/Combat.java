@@ -16,19 +16,19 @@ public class Combat {
         switch (name) {
             case "Mudkip":
                 System.out.println("You chose Mudkip");
-                return new Combat(new Mudkip(5));
+                return new Combat(new WaterType(5));
             case "Charmander":
                 System.out.println("You chose Charmander");
-                return new Combat(new Charmander(5));
-            case "Turtwig":
-                System.out.println("You chose Turtwig");
-                return new Combat(new Turtwig(5));
-
+                return new Combat(new FireType(5));
+            case "TurtWig":
+                System.out.println("You chose TurtWig");
+                return new Combat(new GrassType(5));
         }
         throw new Exception("Didn't enter valid starter pokemon");
     }
 
     public void fight() {
+        starter.changeStats();
         while (starter.isAlive()) {
             EnemyPokemon enemy = spawnEnemy();
             System.out.println("Your opponent is " + enemy.getName());
