@@ -70,4 +70,5 @@ public class EnemyPokemon implements Pokemon<AllyPokemon>{
     public double getAttackDmg() {
         return attackDmg;
     }
+
 }

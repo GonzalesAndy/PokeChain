@@ -61,4 +61,19 @@ class AllyPokemonTest {
         charmander.attack(darkrai);
         assertEquals(darkrai.isAlive(), true);
     }
+
+    @org.junit.jupiter.api.Test
+    void assertThatCharmanderAttackHasTheRightName(){
+        FireType charmander = new FireType(5);
+        assertEquals(charmander.getAttackName(), "Flameech");
+    }
+
+    @org.junit.jupiter.api.Test
+    void assertThatAllyPokemonHasGoodHpRemaining(){
+        GrassType turtwig = new GrassType(5);
+        EnemyPokemon zubat = new EnemyPokemon(PokemonList.ZUBAT);
+        zubat.attack(turtwig);
+        assertEquals(zubat.getAttackDmg(), turtwig.getLostHp());
+}
+
 }

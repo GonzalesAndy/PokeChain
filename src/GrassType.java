@@ -15,7 +15,7 @@ public class GrassType extends AllyPokemon{
     public GrassType(int level) {
         super(level);
         super.setHp(getLevel()*coeffHp);
-        super.setName("TurtWig");
+        super.setName("Turtwig");
         super.setAttackName("Razor Leaf");
         evolutionState.add(false);
         evolutionState.add(false);
