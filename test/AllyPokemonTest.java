@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+
 class AllyPokemonTest {
 
     @org.junit.jupiter.api.Test
@@ -50,7 +51,9 @@ class AllyPokemonTest {
     void assertThatGrumpigDie() {
         EnemyPokemon grumpig = new EnemyPokemon(PokemonList.GRUMPIG);
         FireType charmander = new FireType(100);
-        charmander.attack(grumpig);
+        while(grumpig.getLostHp() == 0){
+            charmander.attack(grumpig);
+        }
         assertEquals(grumpig.isAlive(), false);
     }
 
@@ -58,7 +61,9 @@ class AllyPokemonTest {
     void assertThatDarkraiLoseHp() {
         EnemyPokemon darkrai = new EnemyPokemon(PokemonList.DARKRAI);
         FireType charmander = new FireType(1);
-        charmander.attack(darkrai);
+        while(darkrai.getLostHp() == 0){
+            charmander.attack(darkrai);
+        }
         assertEquals(darkrai.isAlive(), true);
     }
 
@@ -80,9 +85,20 @@ class AllyPokemonTest {
     void assertThatEnnemyPokemonHasGoodHpRemaining(){
         GrassType turtwig = new GrassType(5);
         EnemyPokemon zubat = new EnemyPokemon(PokemonList.ZUBAT);
-        turtwig.attack(zubat);
+        while(zubat.getLostHp() == 0){
+            turtwig.attack(zubat);
+        }
         assertEquals(turtwig.getLevel()*2, zubat.getLostHp()); //On vérifie que les pv perdus valent au niveau de turtwug * son coeff d'attaque (2)
     }
 
-
+    @org.junit.jupiter.api.Test
+    void assertThatCritWork(){
+        FireType charmander = new FireType(38);
+        EnemyPokemon mewtwo = new EnemyPokemon(PokemonList.MEWTWO);
+        while(charmander.isAlive()){
+            charmander.setHp(76);
+            mewtwo.attack(charmander);
+        }
+        assertEquals(charmander.isAlive(), false); // Level 25 * AtckCoeff 3.0 = 75 < 76 Hp, can only kill with critical
+    }
 }
