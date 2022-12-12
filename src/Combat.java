@@ -1,33 +1,40 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Combat {
     private AllyPokemon starter;
+    private Score player;
 
-    public Combat(AllyPokemon starter) {
+    public Combat(AllyPokemon starter, Score player) throws IOException {
         this.starter = starter;
+        this.player = player;
         fight();
 
     }
 
-    public static void start() throws Exception {
+    public static void start(Score player) throws Exception {
         Scanner input = new Scanner(System.in);
         System.out.println("Choose your starter between Mudkip, Charmander and Turtwig");
         String name = input.nextLine();
         switch (name) {
             case "Mudkip":
                 System.out.println("You chose Mudkip");
-                new Combat(new WaterType(5));
+                new Combat(new WaterType(5), player);
+                break;
             case "Charmander":
                 System.out.println("You chose Charmander");
-                new Combat(new FireType(5));
+                new Combat(new FireType(5), player);
+                break;
             case "Turtwig":
                 System.out.println("You chose TurtWig");
-                new Combat(new GrassType(5));
+                new Combat(new GrassType(5), player);
+                break;
+            default:
+                throw new Exception("Didn't enter a valid Starter name...");
         }
-        throw new Exception("Didn't enter valid starter pokemon");
     }
 
-    public void fight() {
+    public void fight() throws IOException {
         starter.changeStats();
         while (starter.isAlive()) {
             EnemyPokemon enemy = spawnEnemy();
@@ -39,8 +46,10 @@ public class Combat {
                 System.out.println("Your Pokemon has "+starter.remainingHp()+ " HP");
                 if (!starter.isAlive()) break;
             }
+            player.addScore();
             starter.levelUp();
         }
+        player.addPlayerToFile();
         System.out.println("Votre pokémon est mort vous avez perdu");
     }
     public EnemyPokemon spawnEnemy() {
@@ -59,6 +68,7 @@ public class Combat {
             case "H":
                 starter.setLostHp(0);
                 System.out.println("Your Pokemon is fully healed he has now "+ starter.getHp() + " HP");
+                player.setWinStreak(0);
                 return false;
             case "D":
                 return true;
