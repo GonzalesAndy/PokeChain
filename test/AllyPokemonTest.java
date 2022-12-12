@@ -65,7 +65,7 @@ class AllyPokemonTest {
     @org.junit.jupiter.api.Test
     void assertThatCharmanderAttackHasTheRightName(){
         FireType charmander = new FireType(5);
-        assertEquals(charmander.getAttackName(), "Flameech");
+        assertEquals(charmander.getAttackName(), "Flameech"); //vérifie que charmander a le bon nom d'attaque
     }
 
     @org.junit.jupiter.api.Test
@@ -73,7 +73,15 @@ class AllyPokemonTest {
         GrassType turtwig = new GrassType(5);
         EnemyPokemon zubat = new EnemyPokemon(PokemonList.ZUBAT);
         zubat.attack(turtwig);
-        assertEquals(zubat.getAttackDmg(), turtwig.getLostHp());
+        assertEquals(zubat.getAttackDmg(), turtwig.getLostHp()); //vérifie que les dégats de l'attaque infligé par le zubat correspond aux dégats recus
 }
+
+    @org.junit.jupiter.api.Test
+    void assertThatEnnemyPokemonHasGoodHpRemaining(){
+        WaterType Mudkip = new WaterType(5);
+        EnemyPokemon zoroark = new EnemyPokemon(PokemonList.ZOROARK);
+        Mudkip.attack(zoroark);
+        assertEquals(Mudkip.getLevel()*2, zoroark.getLostHp());
+    }
 
 }
