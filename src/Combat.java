@@ -16,16 +16,16 @@ public class Combat {
         Scanner input = new Scanner(System.in);
         System.out.println("Choose your starter between Mudkip, Charmander and Turtwig");
         String name = input.nextLine();
-        switch (name) {
-            case "Mudkip":
+        switch (name.toUpperCase()) {
+            case "MUDKIP":
                 System.out.println("You chose Mudkip");
                 new Combat(new WaterType(5), player);
                 break;
-            case "Charmander":
+            case "CHARMANDER":
                 System.out.println("You chose Charmander");
                 new Combat(new FireType(5), player);
                 break;
-            case "Turtwig":
+            case "TURTWIG":
                 System.out.println("You chose TurtWig");
                 new Combat(new GrassType(5), player);
                 break;
@@ -60,7 +60,7 @@ public class Combat {
         Scanner input = new Scanner(System.in);
         System.out.println("What do you want to do ? \n Attack ? (enter A) \n Defend ? (enter D) \n Heal ? (enter H) \n");
         String action = input.nextLine();
-        switch (action) {
+        switch (action.toUpperCase()) {
             case "A":
                 starter.attack(enemy);
                 System.out.println(enemy.getName() + " has " + enemy.remainingHp()+ " HP \n");
