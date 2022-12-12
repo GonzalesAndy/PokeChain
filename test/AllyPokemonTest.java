@@ -40,10 +40,49 @@ class AllyPokemonTest {
     }
 
     @org.junit.jupiter.api.Test
-    void assertCharmanderEvolve() {
+    void assertThatCharmanderLevelUp() {
         FireType charmander = new FireType(9);
-        charmander.changeStats();
         charmander.levelUp();
-        assertEquals(charmander.getName(), "Charmeleon");
+        assertEquals(charmander.getLevel(), 10);
     }
+
+    @org.junit.jupiter.api.Test
+    void assertThatGrumpigDie() {
+        EnemyPokemon grumpig = new EnemyPokemon(PokemonList.GRUMPIG);
+        FireType charmander = new FireType(100);
+        charmander.attack(grumpig);
+        assertEquals(grumpig.isAlive(), false);
+    }
+
+    @org.junit.jupiter.api.Test
+    void assertThatDarkraiLoseHp() {
+        EnemyPokemon darkrai = new EnemyPokemon(PokemonList.DARKRAI);
+        FireType charmander = new FireType(1);
+        charmander.attack(darkrai);
+        assertEquals(darkrai.isAlive(), true);
+    }
+
+    @org.junit.jupiter.api.Test
+    void assertThatCharmanderAttackHasTheRightName(){
+        FireType charmander = new FireType(5);
+        assertEquals(charmander.getAttackName(), "Flameech");
+    }
+
+    @org.junit.jupiter.api.Test
+    void assertThatAllyPokemonHasGoodHpRemaining(){
+        GrassType turtwig = new GrassType(5);
+        EnemyPokemon zubat = new EnemyPokemon(PokemonList.ZUBAT);
+        zubat.attack(turtwig);
+        assertEquals(zubat.getAttackDmg(), turtwig.getLostHp());
+}
+
+    @org.junit.jupiter.api.Test
+    void assertThatEnnemyPokemonHasGoodHpRemaining(){
+        GrassType turtwig = new GrassType(5);
+        EnemyPokemon zubat = new EnemyPokemon(PokemonList.ZUBAT);
+        turtwig.attack(zubat);
+        assertEquals(turtwig.getLevel()*2, zubat.getLostHp()); //On vérifie que les pv perdus valent au niveau de turtwug * son coeff d'attaque (2)
+    }
+
+
 }
