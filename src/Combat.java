@@ -50,7 +50,7 @@ public class Combat {
             starter.levelUp();
         }
         player.addPlayerToFile();
-        System.out.println("Votre pokémon est mort vous avez perdu");
+        System.out.println("You lost cause your Pokemon died");
     }
     public EnemyPokemon spawnEnemy() {
         return new EnemyPokemon(PokemonList.valueOf(starter.getLevel()).get());
