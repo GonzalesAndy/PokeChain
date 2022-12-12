@@ -58,16 +58,6 @@ class AllyPokemonTest {
     }
 
     @org.junit.jupiter.api.Test
-    void assertThatDarkraiLoseHp() {
-        EnemyPokemon darkrai = new EnemyPokemon(PokemonList.DARKRAI);
-        FireType charmander = new FireType(1);
-        while(darkrai.getLostHp() == 0){
-            charmander.attack(darkrai);
-        }
-        assertEquals(darkrai.isAlive(), true);
-    }
-
-    @org.junit.jupiter.api.Test
     void assertThatCharmanderAttackHasTheRightName(){
         FireType charmander = new FireType(5);
         assertEquals(charmander.getAttackName(), "Flameech");
