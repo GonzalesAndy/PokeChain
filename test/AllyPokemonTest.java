@@ -84,7 +84,9 @@ class AllyPokemonTest {
     void assertThatEnnemyPokemonHasGoodHpRemaining(){
         GrassType turtwig = new GrassType(5);
         EnemyPokemon zubat = new EnemyPokemon(PokemonList.ZUBAT);
-        turtwig.attack(zubat);
+        while(zubat.getLostHp() == 0){
+            turtwig.attack(zubat);
+        }
         assertEquals(turtwig.getLevel()*2, zubat.getLostHp()); //On vérifie que les pv perdus valent au niveau de turtwug * son coeff d'attaque (2)
     }
 
