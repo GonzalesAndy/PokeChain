@@ -51,15 +51,30 @@ class AllyPokemonTest {
         EnemyPokemon grumpig = new EnemyPokemon(PokemonList.GRUMPIG);
         FireType charmander = new FireType(100);
         charmander.attack(grumpig);
-        assertEquals(grumpig.isAlive(), false);
+        while(grumpig.getLostHp() == 0){
+            charmander.attack(grumpig);
+        }
+        assertEquals(grumpig.isAlive(), false); // Level 7 * 1.4 HpCoeff < Level 100 * 2 AtckCoeff + 1 BonusType
     }
 
     @org.junit.jupiter.api.Test
     void assertThatDarkraiLoseHp() {
         EnemyPokemon darkrai = new EnemyPokemon(PokemonList.DARKRAI);
+        FireType charmander = new FireType(23);
+        while(darkrai.getLostHp() == 0){
+            charmander.attack(darkrai);
+        }
+        assertEquals(darkrai.isAlive(), true); // Level 24 * 2 HpCoeff < level 23 * 2 AtckCoeff + 1 type bonus
+    }
+
+    @org.junit.jupiter.api.Test
+    void assertThatDarkraiLoseRightNumberOfHp() {
+        EnemyPokemon darkrai = new EnemyPokemon(PokemonList.DARKRAI);
         FireType charmander = new FireType(1);
-        charmander.attack(darkrai);
-        assertEquals(darkrai.isAlive(), true);
+        while(darkrai.getLostHp() == 0){
+            charmander.attack(darkrai);
+        }
+        assertEquals(darkrai.getLostHp(), 3); //Level 1 * 2 Atck coeff + 1 type bonus = 3
     }
 
     @org.junit.jupiter.api.Test
@@ -74,6 +89,5 @@ class AllyPokemonTest {
         EnemyPokemon zubat = new EnemyPokemon(PokemonList.ZUBAT);
         zubat.attack(turtwig);
         assertEquals(zubat.getAttackDmg(), turtwig.getLostHp());
-}
-
+    }
 }
