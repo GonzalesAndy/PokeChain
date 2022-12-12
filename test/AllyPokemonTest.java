@@ -16,26 +16,34 @@ class AllyPokemonTest {
     }
 
     @org.junit.jupiter.api.Test
-    void assertThatEnemyPokemonHaveHisLevel() {
+    void assertThatEnemyPokemonHasHisLevel() {
         EnemyPokemon grumpig = new EnemyPokemon(PokemonList.GRUMPIG);
         assertEquals(grumpig.getLevel(), 7);
     }
 
     @org.junit.jupiter.api.Test
-    void assertThatEnemyPokemonHaveHisName() {
+    void assertThatEnemyPokemonHasHisName() {
         EnemyPokemon grumpig = new EnemyPokemon(PokemonList.GRUMPIG);
         assertEquals(grumpig.getName(), "GRUMPIG");
     }
 
     @org.junit.jupiter.api.Test
-    void assertThatEnemyPokemonHaveHisHp() {
+    void assertThatEnemyPokemonHasHisHp() {
         EnemyPokemon melmetal = new EnemyPokemon(PokemonList.MELMETAL);
         assertEquals(melmetal.getHp(), melmetal.getLevel()*1.9);
     }
 
     @org.junit.jupiter.api.Test
-    void assertThatMewTwoHaveInsaneDamage() {
+    void assertThatMewTwoHasInsaneDamage() {
         EnemyPokemon mewtwo = new EnemyPokemon(PokemonList.MEWTWO);
         assertEquals(mewtwo.getAttackDmg(), mewtwo.getLevel()*3);
+    }
+
+    @org.junit.jupiter.api.Test
+    void assertCharmanderEvolve() {
+        FireType charmander = new FireType(9);
+        charmander.changeStats();
+        charmander.levelUp();
+        assertEquals(charmander.getName(), "Charmeleon");
     }
 }
