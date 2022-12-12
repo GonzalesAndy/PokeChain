@@ -78,6 +78,6 @@ public class Score {
         for (int j = 0; j < usernames.size(); j++) {
             System.out.println("|   "+usernames.get(j)+"          "+scores.get(j)+"   |");
         }
-
+        System.out.println(" ___________________________");
     }
 }
