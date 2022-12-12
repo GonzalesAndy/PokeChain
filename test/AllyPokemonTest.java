@@ -40,10 +40,25 @@ class AllyPokemonTest {
     }
 
     @org.junit.jupiter.api.Test
-    void assertCharmanderEvolve() {
+    void assertThatCharmanderLevelUp() {
         FireType charmander = new FireType(9);
-        charmander.changeStats();
         charmander.levelUp();
-        assertEquals(charmander.getName(), "Charmeleon");
+        assertEquals(charmander.getLevel(), 10);
+    }
+
+    @org.junit.jupiter.api.Test
+    void assertThatGrumpigDie() {
+        EnemyPokemon grumpig = new EnemyPokemon(PokemonList.GRUMPIG);
+        FireType charmander = new FireType(100);
+        charmander.attack(grumpig);
+        assertEquals(grumpig.isAlive(), false);
+    }
+
+    @org.junit.jupiter.api.Test
+    void assertThatDarkraiLoseHp() {
+        EnemyPokemon darkrai = new EnemyPokemon(PokemonList.DARKRAI);
+        FireType charmander = new FireType(1);
+        charmander.attack(darkrai);
+        assertEquals(darkrai.isAlive(), true);
     }
 }
