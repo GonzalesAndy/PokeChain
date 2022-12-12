@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+
 class AllyPokemonTest {
 
     @org.junit.jupiter.api.Test
@@ -90,5 +91,14 @@ class AllyPokemonTest {
         assertEquals(turtwig.getLevel()*2, zubat.getLostHp()); //On vérifie que les pv perdus valent au niveau de turtwug * son coeff d'attaque (2)
     }
 
-
+    @org.junit.jupiter.api.Test
+    void assertThatCritWork(){
+        FireType charmander = new FireType(38);
+        EnemyPokemon mewtwo = new EnemyPokemon(PokemonList.MEWTWO);
+        while(charmander.isAlive()){
+            charmander.setHp(76);
+            mewtwo.attack(charmander);
+        }
+        assertEquals(charmander.isAlive(), false); // Level 25 * AtckCoeff 3.0 = 75 < 76 Hp, can only kill with critical
+    }
 }
