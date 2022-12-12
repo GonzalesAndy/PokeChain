@@ -50,7 +50,9 @@ class AllyPokemonTest {
     void assertThatGrumpigDie() {
         EnemyPokemon grumpig = new EnemyPokemon(PokemonList.GRUMPIG);
         FireType charmander = new FireType(100);
-        charmander.attack(grumpig);
+        while(grumpig.getLostHp() == 0){
+            charmander.attack(grumpig);
+        }
         assertEquals(grumpig.isAlive(), false);
     }
 
@@ -58,7 +60,9 @@ class AllyPokemonTest {
     void assertThatDarkraiLoseHp() {
         EnemyPokemon darkrai = new EnemyPokemon(PokemonList.DARKRAI);
         FireType charmander = new FireType(1);
-        charmander.attack(darkrai);
+        while(darkrai.getLostHp() == 0){
+            charmander.attack(darkrai);
+        }
         assertEquals(darkrai.isAlive(), true);
     }
 
