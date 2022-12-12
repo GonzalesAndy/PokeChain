@@ -59,9 +59,4 @@ public abstract class AllyPokemon implements Pokemon<EnemyPokemon>{
         return String.format("%.2f", remaining);
     }
 
-
-
-
-
-
 }
