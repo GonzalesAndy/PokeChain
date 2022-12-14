@@ -3,12 +3,10 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Array;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Score {
-    private String playerName;
+    private final String playerName;
     private int winStreak;
     private int score;
 
@@ -27,6 +25,10 @@ public class Score {
                 this.score += 3;
             }
         }
+    }
+
+    public String getPlayerName() {
+        return playerName;
     }
 
     public int getWinStreak() {
@@ -48,8 +50,8 @@ public class Score {
     public void addPlayerToFile() throws IOException {
         try {
             FileWriter scoreFile = new FileWriter("scoreboard.txt", true);
-            scoreFile.write(this.playerName +"\n");
             scoreFile.write(this.score +"\n");
+            scoreFile.write(this.playerName +"\n");
             scoreFile.close();
         } catch (IOException e) {
             System.out.println("An error occured.");
@@ -57,26 +59,24 @@ public class Score {
         }
     }
 
+
     public static void showScoreboard() throws FileNotFoundException {
         File scoreFile = new File("scoreboard.txt");
         Scanner reader = new Scanner(scoreFile);
-        List<String> usernames= new ArrayList<>();
-        List<String> scores= new ArrayList<>();
+        SortedMap<Integer, String> scores = new TreeMap<Integer, String>(Collections.reverseOrder());
+
+        //List<String> usernames= new ArrayList<>();
+        //List<String> scores= new ArrayList<>();
         int i = 0;
         while (reader.hasNext()) {
             if (i%2 == 0) {
-                String username = reader.nextLine();
-                usernames.add((String.format("%-9s", username)));
-            }
-            else {
-                String score = reader.nextLine();
-                scores.add(String.format("%2s", score));
+                scores.put(Integer.valueOf(reader.next()), String.format("%-9s",reader.next()));
             }
             ++i;
         }
         System.out.println(" __ Username ______ Score __");
-        for (int j = 0; j < usernames.size(); j++) {
-            System.out.println("|   "+usernames.get(j)+"          "+scores.get(j)+"   |");
+        for (Map.Entry<Integer, String> entry : scores.entrySet()) {
+            System.out.println("|   "+entry.getValue()+"          "+entry.getKey()+"   |");
         }
         System.out.println(" ___________________________");
     }
