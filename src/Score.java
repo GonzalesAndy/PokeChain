@@ -43,7 +43,7 @@ public class Score {
     }
 
     /**
-     * Write score and player name associated in a txt file
+     * Write score and player name associated in a text file
      * @throws IOException Warn when an error occured while file write
      */
     public void addPlayerToFile() throws IOException {
@@ -59,8 +59,8 @@ public class Score {
     }
 
     /**
-     * Verify if score txt file exist, if it doesn't, create one.
-     * @param scoreFile txt file used to save scoreBoard
+     * Verify if score text file exist, if it doesn't, create one.
+     * @param scoreFile text file used to save scoreBoard
      */
     public static void fileExists(File scoreFile) {
         if (!scoreFile.exists()) {
@@ -77,7 +77,7 @@ public class Score {
     }
 
     /**
-     * Print a beautiful scoreboard sorted by highrst score to lowest one
+     * Print a scoreboard sorted by highest score to lowest one
      * @throws FileNotFoundException Error handling in case of inexisting score file
      */
     public static void showScoreboard() throws FileNotFoundException {
