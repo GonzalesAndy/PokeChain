@@ -25,7 +25,7 @@ public class FireType extends AllyPokemon{
         Thread thread = new Thread(() -> {
             while(true) {
                 if (this.getLevel() >= 10 && !evolutionState.get(0)) {
-                    System.out.println("Your pokemon has evolved to Charmeleon \n");
+                    System.out.println("\n" + ConsoleColors.PURPLE_BOLD + "Your pokemon has evolved to Charmeleon \n" + ConsoleColors.RESET);
                     super.setName("Charmeleon");
                     super.setAttackName("FlameThrower");
                     coeffHp = 3.5;
@@ -33,7 +33,7 @@ public class FireType extends AllyPokemon{
                     accuracy = 0.15;
                     evolutionState.set(0,true);
                 } else if (this.getLevel() >= 15 && !evolutionState.get(1)) {
-                    System.out.println("Your pokemon has evolved to Charizard \n");
+                    System.out.println("\n" + ConsoleColors.PURPLE_BOLD + "Your pokemon has evolved to Charizard \n" + ConsoleColors.RESET);
                     super.setName("Charizard");
                     super.setAttackName("Inferno");
                     coeffHp = 5;

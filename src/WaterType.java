@@ -26,7 +26,7 @@ public class WaterType extends AllyPokemon{
         Thread thread = new Thread(() -> {
             while(true) {
                 if (this.getLevel() >= 10 && !evolutionState.get(0)) {
-                    System.out.println("Your pokemon has evolved to Marshtomp \n");
+                    System.out.println("\n" + ConsoleColors.PURPLE_BOLD + "Your pokemon has evolved to Marshtomp \n" + ConsoleColors.RESET);
                     super.setName("Marshtomp");
                     super.setAttackName("Surf");
                     coeffHp = 3.5;
@@ -34,7 +34,7 @@ public class WaterType extends AllyPokemon{
                     accuracy = 0.15-bonusAccuracy;
                     evolutionState.set(0,true);
                 } else if (this.getLevel() >= 15 && !evolutionState.get(1)) {
-                    System.out.println("Your pokemon has evolved to Swampert \n");
+                    System.out.println("\n" + "Your pokemon has evolved to Swampert \n");
                     super.setName("Swampert");
                     super.setAttackName("Hydroblast");
                     coeffHp = 5;

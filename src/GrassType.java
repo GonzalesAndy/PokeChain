@@ -26,7 +26,7 @@ public class GrassType extends AllyPokemon{
         Thread thread = new Thread(() -> {
             while(true) {
                 if (this.getLevel() >= 10 && !evolutionState.get(0)) {
-                    System.out.println("Your pokemon has evolved to Grotle \n");
+                    System.out.println("\n" + ConsoleColors.PURPLE_BOLD + "Your pokemon has evolved to Grotle \n" + ConsoleColors.RESET);
                     super.setName("Grotle");
                     super.setAttackName("Energy Ball");
                     coeffHp = 3.5+bonusHP;
@@ -34,7 +34,7 @@ public class GrassType extends AllyPokemon{
                     accuracy = 0.15;
                     evolutionState.set(0,true);
                 } else if (this.getLevel() >= 15 && !evolutionState.get(1)) {
-                    System.out.println("Your pokemon has evolved to Torterra \n");
+                    System.out.println("\n" + ConsoleColors.PURPLE_BOLD + "Your pokemon has evolved to Torterra \n" + ConsoleColors.RESET);
                     super.setName("Torterra");
                     super.setAttackName("Leaf Storm");
                     coeffHp = 5+bonusHP;

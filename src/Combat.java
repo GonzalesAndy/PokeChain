@@ -2,8 +2,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Combat {
-    private AllyPokemon starter;
-    private Score player;
+    private final AllyPokemon starter;
+    private final Score player;
 
     public Combat(AllyPokemon starter, Score player) throws IOException {
         this.starter = starter;
@@ -17,20 +17,19 @@ public class Combat {
         System.out.println("Choose your starter between Mudkip, Charmander and Turtwig");
         String name = input.nextLine();
         switch (name.toUpperCase()) {
-            case "MUDKIP":
-                System.out.println("You chose Mudkip");
+            case "MUDKIP" -> {
+                System.out.println("You chose " + ConsoleColors.WHITE_BOLD + "Mudkip" + ConsoleColors.RESET);
                 new Combat(new WaterType(5), player);
-                break;
-            case "CHARMANDER":
-                System.out.println("You chose Charmander");
+            }
+            case "CHARMANDER" -> {
+                System.out.println("You chose " + ConsoleColors.WHITE_BOLD + "Charmander" + ConsoleColors.RESET);
                 new Combat(new FireType(5), player);
-                break;
-            case "TURTWIG":
-                System.out.println("You chose TurtWig");
+            }
+            case "TURTWIG" -> {
+                System.out.println("You chose " + ConsoleColors.WHITE_BOLD + "TurtWig" + ConsoleColors.RESET);
                 new Combat(new GrassType(5), player);
-                break;
-            default:
-                throw new Exception("Didn't enter a valid Starter name...");
+            }
+            default -> throw new Exception("Didn't enter a valid Starter name...");
         }
     }
 
@@ -38,7 +37,7 @@ public class Combat {
         starter.changeStats();
         while (starter.isAlive()) {
             EnemyPokemon enemy = spawnEnemy();
-            System.out.println("Your opponent is " + enemy.getName());
+            System.out.println("Your opponent is " + ConsoleColors.WHITE_BOLD +enemy.getName() + ConsoleColors.RESET);
             System.out.println(ConsoleColors.WHITE_BOLD + enemy.getName() + ConsoleColors.RESET + " has " + ConsoleColors.RED +enemy.remainingHp() + " HP" + ConsoleColors.RESET);
             while (enemy.isAlive()) {
                 if (!action(enemy))

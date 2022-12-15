@@ -1,11 +1,11 @@
 public class EnemyPokemon implements Pokemon<AllyPokemon>{
 
-    private double attackDmg;
-    private String name;
+    private final double attackDmg;
+    private final String name;
     private double lostHp;
-    private double hp;
-    private int level;
-    private double critProba;
+    private final double hp;
+    private final int level;
+    private final double critProba;
 
 
 
@@ -20,10 +20,10 @@ public class EnemyPokemon implements Pokemon<AllyPokemon>{
 
     public void attack(AllyPokemon allyPokemon) {
         if (Math.random() <= critProba){
-            System.out.println("Critical hit !");
+            System.out.println(ConsoleColors.YELLOW +"Critical hit !" + ConsoleColors.RESET);
             allyPokemon.setLostHp(allyPokemon.getLostHp()+(this.getAttackDmg()*0.25));
         }
-        System.out.println(this.getName()+" attacked you");
+        System.out.println(ConsoleColors.WHITE_BOLD + this.getName()+ ConsoleColors.RESET +" attacked you");
         allyPokemon.setLostHp((allyPokemon.getLostHp()+this.getAttackDmg()));
     }
 
@@ -37,14 +37,6 @@ public class EnemyPokemon implements Pokemon<AllyPokemon>{
     public String remainingHp() {
         double remaining = this.getHp()-this.getLostHp();
         return String.format("%.2f", remaining);
-    }
-
-    public double getCritProba() {
-        return critProba;
-    }
-
-    public void setCritProba(double critProba) {
-        this.critProba = critProba;
     }
 
     public double getLostHp() {
