@@ -29,7 +29,8 @@ public class WaterType extends AllyPokemon{
                     System.out.println("\n" + ConsoleColors.PURPLE_BOLD + "Your pokemon has evolved to Marshtomp \n" + ConsoleColors.RESET);
                     super.setName("Marshtomp");
                     super.setAttackName("Surf");
-                    coeffHp = 3.5;
+                    this.setCoeffHp(3.5);
+                    super.setHp(getLevel()*coeffHp);
                     coeffAttack = 3.5;
                     accuracy = 0.15-bonusAccuracy;
                     evolutionState.set(0,true);
@@ -37,7 +38,8 @@ public class WaterType extends AllyPokemon{
                     System.out.println("\n" + ConsoleColors.PURPLE_BOLD + "Your pokemon has evolved to Swampert \n" + ConsoleColors.RESET);
                     super.setName("Swampert");
                     super.setAttackName("Hydroblast");
-                    coeffHp = 5;
+                    this.setCoeffHp(5);
+                    super.setHp(getLevel()*coeffHp);
                     coeffAttack = 5;
                     accuracy = 0.1-bonusAccuracy;
                     evolutionState.set(1,true);
@@ -57,6 +59,18 @@ public class WaterType extends AllyPokemon{
             System.out.println(ConsoleColors.WHITE_BOLD +this.getName()+ ConsoleColors.RESET +" use "+ this.getAttackName()+"!");
             enemyPokemon.setLostHp(getLostHp()+((coeffAttack*super.getLevel())));
         }
+    }
+
+    public void setCoeffAttack(double coeffAttack) {
+        this.coeffAttack = coeffAttack;
+    }
+
+    public void setCoeffHp(double coeffHp) {
+        this.coeffHp = coeffHp;
+    }
+
+    public void setAccuracy(double accuracy) {
+        this.accuracy = accuracy;
     }
 
     @Override

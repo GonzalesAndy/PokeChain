@@ -29,7 +29,8 @@ public class GrassType extends AllyPokemon{
                     System.out.println("\n" + ConsoleColors.PURPLE_BOLD + "Your pokemon has evolved to Grotle \n" + ConsoleColors.RESET);
                     super.setName("Grotle");
                     super.setAttackName("Energy Ball");
-                    coeffHp = 3.5+bonusHP;
+                    this.setCoeffHp(3.5+bonusHP);
+                    super.setHp(getLevel()*coeffHp);
                     coeffAttack = 3.5;
                     accuracy = 0.15;
                     evolutionState.set(0,true);
@@ -37,7 +38,8 @@ public class GrassType extends AllyPokemon{
                     System.out.println("\n" + ConsoleColors.PURPLE_BOLD + "Your pokemon has evolved to Torterra \n" + ConsoleColors.RESET);
                     super.setName("Torterra");
                     super.setAttackName("Leaf Storm");
-                    coeffHp = 5+bonusHP;
+                    this.setCoeffHp(5+bonusHP);
+                    super.setHp(getLevel()*coeffHp);
                     coeffAttack = 5;
                     accuracy = 0.1;
                     evolutionState.set(1,true);
@@ -57,6 +59,18 @@ public class GrassType extends AllyPokemon{
             System.out.println(ConsoleColors.WHITE_BOLD + this.getName()+ ConsoleColors.RESET +" use "+ this.getAttackName()+"!");
             enemyPokemon.setLostHp(getLostHp()+((coeffAttack*super.getLevel())));
         }
+    }
+
+    public void setCoeffAttack(double coeffAttack) {
+        this.coeffAttack = coeffAttack;
+    }
+
+    public void setCoeffHp(double coeffHp) {
+        this.coeffHp = coeffHp;
+    }
+
+    public void setAccuracy(double accuracy) {
+        this.accuracy = accuracy;
     }
 
     @Override

@@ -28,7 +28,8 @@ public class FireType extends AllyPokemon{
                     System.out.println("\n" + ConsoleColors.PURPLE_BOLD + "Your pokemon has evolved to Charmeleon \n" + ConsoleColors.RESET);
                     super.setName("Charmeleon");
                     super.setAttackName("FlameThrower");
-                    coeffHp = 3.5;
+                    this.setCoeffHp(3.5);
+                    super.setHp(getLevel()*coeffHp);
                     coeffAttack = 3.5;
                     accuracy = 0.15;
                     evolutionState.set(0,true);
@@ -36,7 +37,8 @@ public class FireType extends AllyPokemon{
                     System.out.println("\n" + ConsoleColors.PURPLE_BOLD + "Your pokemon has evolved to Charizard \n" + ConsoleColors.RESET);
                     super.setName("Charizard");
                     super.setAttackName("Inferno");
-                    coeffHp = 5;
+                    this.setCoeffHp(3.5);
+                    super.setHp(getLevel()*coeffHp);
                     coeffAttack = 5;
                     accuracy = 0.1;
                     evolutionState.set(1,true);
@@ -57,6 +59,18 @@ public class FireType extends AllyPokemon{
             double bonusDamage = 5.0;
             enemyPokemon.setLostHp(getLostHp()+((coeffAttack*super.getLevel()+ bonusDamage)));
         }
+    }
+
+    public void setCoeffAttack(double coeffAttack) {
+        this.coeffAttack = coeffAttack;
+    }
+
+    public void setCoeffHp(double coeffHp) {
+        this.coeffHp = coeffHp;
+    }
+
+    public void setAccuracy(double accuracy) {
+        this.accuracy = accuracy;
     }
 
     @Override
