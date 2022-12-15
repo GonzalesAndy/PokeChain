@@ -39,11 +39,11 @@ public class Combat {
         while (starter.isAlive()) {
             EnemyPokemon enemy = spawnEnemy();
             System.out.println("Your opponent is " + enemy.getName());
-            System.out.println(enemy.getName() + " has " + enemy.remainingHp() + " HP");
+            System.out.println(ConsoleColors.WHITE_BOLD + enemy.getName() + ConsoleColors.RESET + " has " + ConsoleColors.RED +enemy.remainingHp() + " HP" + ConsoleColors.RESET);
             while (enemy.isAlive()) {
                 if (!action(enemy))
                     enemy.attack(starter);
-                System.out.println("Your Pokemon has "+starter.remainingHp()+ " HP");
+                System.out.println("Your Pokemon has "+ConsoleColors.GREEN + starter.remainingHp()+ " HP" + ConsoleColors.RESET);
                 if (!starter.isAlive()) break;
             }
             player.addScore();
@@ -58,16 +58,16 @@ public class Combat {
     
     public boolean action(EnemyPokemon enemy) {
         Scanner input = new Scanner(System.in);
-        System.out.println("What do you want to do ? \n Attack ? (enter A) \n Defend ? (enter D) \n Heal ? (enter H) \n");
+        System.out.println("\n What do you want to do ? \n Attack ? (enter A) \n Defend ? (enter D) \n Heal ? (enter H) \n");
         String action = input.nextLine();
         switch (action.toUpperCase()) {
             case "A":
                 starter.attack(enemy);
-                System.out.println(enemy.getName() + " has " + enemy.remainingHp()+ " HP \n");
+                System.out.println(ConsoleColors.WHITE_BOLD + enemy.getName() + ConsoleColors.RESET + " has " + enemy.remainingHp()+ " HP \n");
                 return false;
             case "H":
                 starter.setLostHp(0);
-                System.out.println("Your Pokemon is fully healed he has now "+ starter.getHp() + " HP");
+                System.out.println("Your Pokemon is fully healed he has now "+ ConsoleColors.GREEN + starter.getHp() + " HP" + ConsoleColors.RESET);
                 player.setWinStreak(0);
                 return false;
             case "D":

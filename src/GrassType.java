@@ -51,10 +51,10 @@ public class GrassType extends AllyPokemon{
     @Override
     public void attack(EnemyPokemon enemyPokemon) {
         if (Math.random() <= accuracy){
-            System.out.println(this.getName()+" missed his attack");
+            System.out.println(ConsoleColors.WHITE_BOLD + this.getName()+ ConsoleColors.RESET +" missed his attack");
         }
         else {
-            System.out.println(this.getName()+" use "+ this.getAttackName()+"!");
+            System.out.println(ConsoleColors.WHITE_BOLD + this.getName()+ ConsoleColors.RESET +" use "+ this.getAttackName()+"!");
             enemyPokemon.setLostHp(getLostHp()+((coeffAttack*super.getLevel())));
         }
     }
