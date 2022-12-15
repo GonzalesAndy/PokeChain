@@ -1,3 +1,6 @@
+/**
+ * Class used to manage all of the ally pokemons
+ */
 public abstract class AllyPokemon implements Pokemon<EnemyPokemon>{
     private int level;
 
@@ -48,32 +51,32 @@ public abstract class AllyPokemon implements Pokemon<EnemyPokemon>{
     }
 
     /**
-     * Getter of the number of health points of the ally pokemon
-     * @return the number of health points of the ally pokemon
+     * Getter of the number of Health Points of the ally pokemon
+     * @return the number of Health Points of the ally pokemon
      */
     public double getHp() {
         return hp;
     }
 
     /**
-     * Setter of the number of health points of the ally pokemon
-     * @param hp corresponds to the number of ally pokemon health points
+     * Setter of the number of Health Points of the ally pokemon
+     * @param hp corresponds to the number of ally pokemon Health Points
      */
     public void setHp(double hp) {
         this.hp = hp;
     }
 
     /**
-     * Getter of the number of Health points lost by the ally pokemon after an ennemy pokemon attack
-     * @return the number of Health points lost by the ally pokemon after an ennemy pokemon attack
+     * Getter of the number of Health Points lost by the ally pokemon after an ennemy pokemon attack
+     * @return the number of Health Points lost by the ally pokemon after an ennemy pokemon attack
      */
     public double getLostHp() {
         return lostHp;
     }
 
     /**
-     * Setter of the number of Health points lost by the ally pokemon after an ennemy pokemon attack
-     * @param lostHp corresponds to the number of Health points lost by the ally pokemon after an ennemy pokemon attack
+     * Setter of the number of Health Points lost by the ally pokemon after an ennemy pokemon attack
+     * @param lostHp corresponds to the number of Health Points lost by the ally pokemon after an ennemy pokemon attack
      */
     public void setLostHp(double lostHp) {
         this.lostHp = lostHp;
@@ -112,8 +115,8 @@ public abstract class AllyPokemon implements Pokemon<EnemyPokemon>{
     }
 
     /**
-     * Function that calculate the Health points remaining on the ally pokemon after he took an attack of an ennemy pokemon
-     * @return the number of the health points remaining on the ally pokemon after he took an attack of an ennemy pokemon
+     * Function that calculate the Health Points remaining on the ally pokemon after he took an attack of an ennemy pokemon
+     * @return the number of the Health Points remaining on the ally pokemon after he took an attack of an ennemy pokemon
      */
     public String remainingHp() {
         double remaining = this.getHp()-this.getLostHp();

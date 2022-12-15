@@ -2,6 +2,9 @@ import java.lang.Math;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class used to manage the ally pokemons with water type
+ */
 public class WaterType extends AllyPokemon{
 
 
@@ -12,6 +15,10 @@ public class WaterType extends AllyPokemon{
 
     private final List<Boolean> evolutionState = new ArrayList<>();
 
+    /**
+     * Class constructor of WaterType
+     * @param level that corresponds to the level of the ally pokemon used
+     */
     public WaterType(int level) {
         super(level);
         super.setHp(getLevel()*coeffHp);
@@ -29,7 +36,8 @@ public class WaterType extends AllyPokemon{
                     System.out.println("\n" + ConsoleColors.PURPLE_BOLD + "Your pokemon has evolved to Marshtomp \n" + ConsoleColors.RESET);
                     super.setName("Marshtomp");
                     super.setAttackName("Surf");
-                    coeffHp = 3.5;
+                    this.setCoeffHp(3.5);
+                    super.setHp(getLevel()*coeffHp);
                     coeffAttack = 3.5;
                     accuracy = 0.15-bonusAccuracy;
                     evolutionState.set(0,true);
@@ -37,7 +45,8 @@ public class WaterType extends AllyPokemon{
                     System.out.println("\n" + ConsoleColors.PURPLE_BOLD + "Your pokemon has evolved to Swampert \n" + ConsoleColors.RESET);
                     super.setName("Swampert");
                     super.setAttackName("Hydroblast");
-                    coeffHp = 5;
+                    this.setCoeffHp(5);
+                    super.setHp(getLevel()*coeffHp);
                     coeffAttack = 5;
                     accuracy = 0.1-bonusAccuracy;
                     evolutionState.set(1,true);
@@ -57,6 +66,14 @@ public class WaterType extends AllyPokemon{
             System.out.println(ConsoleColors.WHITE_BOLD +this.getName()+ ConsoleColors.RESET +" use "+ this.getAttackName()+"!");
             enemyPokemon.setLostHp(getLostHp()+((coeffAttack*super.getLevel())));
         }
+    }
+
+    /**
+     * Setters to change the coefficient of HP
+     * @param coeffHp corresponds to the new Hp coefficient
+     */
+    public void setCoeffHp(double coeffHp) {
+        this.coeffHp = coeffHp;
     }
 
     @Override

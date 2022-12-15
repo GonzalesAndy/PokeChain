@@ -1,6 +1,9 @@
 import java.util.Arrays;
 import java.util.Optional;
 
+/**
+ * Enum of all ennemy pokemons that the player can confront with his pokemon
+ */
 public enum PokemonList {
 
     ZUBAT(5, 0.2, 1, 0.05),
@@ -25,12 +28,20 @@ public enum PokemonList {
     DARKRAI(24, 0.3, 2, 0.4),
     MEWTWO(25, 3, 1.2, 0.5);
 
+
     private final int level;
     private final double coeffAttack;
     private final double coeffHP;
     private final double critProba;
 
 
+    /**
+     * Class constructor of PokemonList
+     * @param level that corresponds to the level of the ennemy pokemon
+     * @param coeffAttack that corresponds to the attack coefficient of the ennemy pokemon
+     * @param coeffHP that corresponds to the Health Points of the ennemy pokemon
+     * @param critProba that corresponds to the probability of inflicting a critical attack for an ennemy pokemon
+     */
     PokemonList(int level , double coeffAttack, double coeffHP, double critProba) {
         this.level = level;
         this.coeffAttack = coeffAttack;
@@ -39,22 +50,43 @@ public enum PokemonList {
 
     }
 
+    /**
+     * Getter of the level of an ennemy pokemon
+     * @return the level of an ennemy pokemon
+     */
     public int getLevel() {
         return level;
     }
 
+    /**
+     * Getter of the attack coefficient of an ennemy pokemon
+     * @return the attack coefficient of an ennemy pokemon
+     */
     public double getCoeffAttack() {
         return coeffAttack;
     }
 
+    /**
+     *Getter of the Health Points coefficient of an ennemy pokemon
+     * @return the Health Points coefficient of an ennemy pokemon
+     */
     public double getCoeffHP() {
         return coeffHP;
     }
 
+    /**
+     * Getter of the probability of inflicting a critical attack for an ennemy pokemon
+     * @return the probability of inflicting a critical attack for an ennemy pokemon
+     */
     public double getCritProba() {
         return critProba;
     }
 
+    /**
+     * Function that filters the level of ennemy pokemons to select them as opponents in function of the ally pokemon level
+     * @param level that corresponds to the level of the ally pokemon
+     * @return the chosen pokemon to confront the ally pokemon
+     */
     public static Optional<PokemonList> valueOf(double level) {
         return Arrays.stream(values())
                 .filter(PokemonList -> PokemonList.level == level)

@@ -1,3 +1,6 @@
+/**
+ * Class used to manage all of the ennemies pokemons
+ */
 public class EnemyPokemon implements Pokemon<AllyPokemon>{
 
     private final double attackDmg;
@@ -36,7 +39,7 @@ public class EnemyPokemon implements Pokemon<AllyPokemon>{
 
     /**
      * Used to check if the ennemy pokemon is still alive or dead after an attack
-     * @return true if the health points of the ennemy pokemon are still superior to 0 after he lost life because of an attack
+     * @return true if the Health Points of the ennemy pokemon are still superior to 0 after he lost life because of an attack
      */
     @Override
     public boolean isAlive() {
@@ -44,8 +47,8 @@ public class EnemyPokemon implements Pokemon<AllyPokemon>{
     }
 
     /**
-     * Function that calculate the number of health points on an ennemy pokemon
-     * @return the number of health points remaining on an enemy pokemon after he took an ally pokemon attack
+     * Function that calculate the number of Health Points on an ennemy pokemon
+     * @return the number of Health Points remaining on an enemy pokemon after he took an ally pokemon attack
      */
     @Override
     public String remainingHp() {
@@ -54,24 +57,24 @@ public class EnemyPokemon implements Pokemon<AllyPokemon>{
     }
 
     /**
-     * Getter of the number of health points lost on an ennemy pokemon after an ally pokemon attack
-      * @return the number of health points lost on an ennemy pokemon after an ally pokemon attack
+     * Getter of the number of Health Points lost on an ennemy pokemon after an ally pokemon attack
+      * @return the number of Health Points lost on an ennemy pokemon after an ally pokemon attack
      */
     public double getLostHp() {
         return lostHp;
     }
 
     /**
-     *Setter of the number of health points lost on an ennemy pokemon after an ally pokemon attack
-     * @param lostHp correspond to the number of health points lost on an ennemy pokemon after an ally pokemon attack
+     *Setter of the number of Health Points lost on an ennemy pokemon after an ally pokemon attack
+     * @param lostHp correspond to the number of Health Points lost on an ennemy pokemon after an ally pokemon attack
      */
     public void setLostHp(double lostHp) {
         this.lostHp = lostHp;
     }
 
     /**
-     * Getter of the number of health points on an ennemy pokemon
-     * @return the number of health points on an ennemy pokemon
+     * Getter of the number of Health Points on an ennemy pokemon
+     * @return the number of Health Points on an ennemy pokemon
      */
     public double getHp() {
         return hp;
