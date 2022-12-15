@@ -21,7 +21,7 @@ class ScoreTest {
      * Test that when you have 5 win streak you get a bonus point
      */
     @org.junit.jupiter.api.Test
-    void assertThatWinSreakWork(){
+    void assertThatWinStreakWork(){
         Score scoreBoard = new Score("LUCAS18");
         for (int i=0; i<5; i++){
             scoreBoard.addScore();
