@@ -78,6 +78,10 @@ public class GrassType extends AllyPokemon{
     @Override
     public void levelUp() { super.setLevel(super.getLevel()+1);}
 
+    /**
+     * Used to check if the ally pokemon is still alive or dead after an attack
+     * @return true if the Health Points of the ally pokemon are still superior to 0 after he lost life because of an attack
+     */
     @Override
     public boolean isAlive() {
         return super.getHp()-super.getLostHp()>0;
