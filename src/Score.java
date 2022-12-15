@@ -9,12 +9,20 @@ public class Score {
     private int winStreak;
     private int score;
 
+    /**
+     * Class constructor of Score
+     * @param playerName Name entered by the player when the game begin
+     */
     public Score(String playerName) {
         this.playerName = playerName;
         this.winStreak = 0;
         this.score = 0;
     }
 
+    /**
+     * Increment score and winStreak by one when called
+     * Increment score when winStreak pass 5 and 10
+     */
     public void addScore() {
         this.score += 1;
         this.winStreak += 1;
@@ -26,10 +34,18 @@ public class Score {
         }
     }
 
+    /**
+     * Setter for winStreak
+     * @param winStreak number of round played without using heal
+     */
     public void setWinStreak(int winStreak) {
         this.winStreak = winStreak;
     }
 
+    /**
+     * Write score and player name associated in a txt file
+     * @throws IOException Warn when an error occured while file write
+     */
     public void addPlayerToFile() throws IOException {
         try {
             FileWriter scoreFile = new FileWriter("scoreboard.txt", true);
@@ -42,6 +58,10 @@ public class Score {
         }
     }
 
+    /**
+     * Verify if score txt file exist, if it doesn't, create one.
+     * @param scoreFile txt file used to save scoreBoard
+     */
     public static void fileExists(File scoreFile) {
         if (!scoreFile.exists()) {
             try {
@@ -56,6 +76,10 @@ public class Score {
         }
     }
 
+    /**
+     * Print a beautiful scoreboard sorted by highrst score to lowest one
+     * @throws FileNotFoundException Error handling in case of inexisting score file
+     */
     public static void showScoreboard() throws FileNotFoundException {
         File scoreFile = new File("scoreboard.txt");
         fileExists(scoreFile);
@@ -75,6 +99,10 @@ public class Score {
         System.out.println(" ___________________________");
     }
 
+    /**
+     * Getters for score
+     * @return score as an int
+     */
     public int getScore() {
         return score;
     }
