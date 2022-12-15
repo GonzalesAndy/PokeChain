@@ -68,16 +68,12 @@ public class WaterType extends AllyPokemon{
         }
     }
 
-    public void setCoeffAttack(double coeffAttack) {
-        this.coeffAttack = coeffAttack;
-    }
-
+    /**
+     * Setters to change the coefficient of HP
+     * @param coeffHp corresponds to the new Hp coefficient
+     */
     public void setCoeffHp(double coeffHp) {
         this.coeffHp = coeffHp;
-    }
-
-    public void setAccuracy(double accuracy) {
-        this.accuracy = accuracy;
     }
 
     @Override
