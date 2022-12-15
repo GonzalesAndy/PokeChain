@@ -1,6 +1,12 @@
 import java.util.Scanner;
 
+/**
+ * Class allowing to start the game
+ */
 public class Main {
+    /**
+     * @hidden
+     */
     public static void main(String[] args) throws Exception {
         Score.showScoreboard();
         Scanner scanner = new Scanner(System.in);
