@@ -2,7 +2,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.Array;
 import java.util.*;
 
 public class Score {
@@ -27,24 +26,8 @@ public class Score {
         }
     }
 
-    public String getPlayerName() {
-        return playerName;
-    }
-
-    public int getWinStreak() {
-        return winStreak;
-    }
-
     public void setWinStreak(int winStreak) {
         this.winStreak = winStreak;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    public int getScore() {
-        return score;
     }
 
     public void addPlayerToFile() throws IOException {
@@ -59,14 +42,25 @@ public class Score {
         }
     }
 
+    public static void fileExists(File scoreFile) {
+        if (!scoreFile.exists()) {
+            try {
+                if(scoreFile.createNewFile())
+                    System.out.println("Scoreboard File created !");
+                else {
+                    System.out.println("Failed to create Scoreboard File");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     public static void showScoreboard() throws FileNotFoundException {
         File scoreFile = new File("scoreboard.txt");
+        fileExists(scoreFile);
         Scanner reader = new Scanner(scoreFile);
-        SortedMap<Integer, String> scores = new TreeMap<Integer, String>(Collections.reverseOrder());
-
-        //List<String> usernames= new ArrayList<>();
-        //List<String> scores= new ArrayList<>();
+        SortedMap<Integer, String> scores = new TreeMap<>(Collections.reverseOrder());
         int i = 0;
         while (reader.hasNext()) {
             if (i%2 == 0) {
