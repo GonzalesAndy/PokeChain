@@ -1,3 +1,6 @@
+/**
+ * Class used to manage all of the ennemies pokemons
+ */
 public class EnemyPokemon implements Pokemon<AllyPokemon>{
 
     private final double attackDmg;

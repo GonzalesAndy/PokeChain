@@ -2,6 +2,9 @@ import java.lang.Math;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class used to manage the ally pokemons with water type
+ */
 public class WaterType extends AllyPokemon{
 
 
@@ -12,6 +15,10 @@ public class WaterType extends AllyPokemon{
 
     private final List<Boolean> evolutionState = new ArrayList<>();
 
+    /**
+     * Class constructor of WaterType
+     * @param level that corresponds to the level of the ally pokemon used
+     */
     public WaterType(int level) {
         super(level);
         super.setHp(getLevel()*coeffHp);
