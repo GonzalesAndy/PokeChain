@@ -2,6 +2,9 @@ import java.lang.Math;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class used to manage the ally pokemons with fire type
+ */
 public class FireType extends AllyPokemon{
 
 

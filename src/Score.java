@@ -4,6 +4,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * Class used to manage the score of the player during the game
+ */
 public class Score {
     private final String playerName;
     private int winStreak;

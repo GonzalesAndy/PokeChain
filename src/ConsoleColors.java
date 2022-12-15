@@ -1,3 +1,6 @@
+/**
+ * Class used to put colors in the text of terminal
+ */
 public class ConsoleColors {
 
     public static final String RESET = "\033[0m";       //Color Reset

@@ -1,6 +1,9 @@
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Class used to manage the fights beetween ally and ennemies pokemons
+ */
 public class Combat {
     private final AllyPokemon starter;
     private final Score player;
