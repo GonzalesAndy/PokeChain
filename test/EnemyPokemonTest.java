@@ -29,7 +29,7 @@ class EnemyPokemonTest {
             charmander.setHp(76);
             mewtwo.attack(charmander);
         }
-        assertEquals(charmander.isAlive(), false); // Level 25 * AtckCoeff 3.0 = 75 < 76 Hp, can only kill with critical
+        assertFalse(charmander.isAlive()); // Level 25 * AtckCoeff 3.0 = 75 < 76 Hp, can only kill with critical
     }
 
     /**
@@ -42,7 +42,7 @@ class EnemyPokemonTest {
         while(grumpig.getLostHp() == 0){
             charmander.attack(grumpig);
         }
-        assertEquals(grumpig.isAlive(), false);
+        assertFalse(grumpig.isAlive());
     }
 
     /**
