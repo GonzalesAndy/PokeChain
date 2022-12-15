@@ -5,6 +5,12 @@ public class Combat {
     private final AllyPokemon starter;
     private final Score player;
 
+    /**
+     * Class constructor for Combat
+     * @param starter AllyPokemon choosen by the player to play the game
+     * @param player Score and name registration for the game
+     * @throws IOException Warn when an error occured while file write
+     */
     public Combat(AllyPokemon starter, Score player) throws IOException {
         this.starter = starter;
         this.player = player;
@@ -12,6 +18,11 @@ public class Combat {
 
     }
 
+    /**
+     * Starter choice management
+     * @param player Score and name registration for the game
+     * @throws Exception Return an error if player enter a non existing starter name
+     */
     public static void start(Score player) throws Exception {
         Scanner input = new Scanner(System.in);
         System.out.println("Choose your starter between Mudkip, Charmander and Turtwig");
@@ -33,6 +44,15 @@ public class Combat {
         }
     }
 
+    /**
+     * Course game's management :
+     * - Spawn multiples enemies
+     * - Score management
+     * - Player's actions management
+     * - Level up management
+     * - Loose message printing
+     * @throws IOException Warn when an error occured while file write
+     */
     public void fight() throws IOException {
         starter.changeStats();
         while (starter.isAlive()) {
@@ -51,10 +71,20 @@ public class Combat {
         player.addPlayerToFile();
         System.out.println("You lost cause your Pokemon died");
     }
+
+    /**
+     * Create enemy pokemon according to our level
+     * @return The chosen enemy pokemon
+     */
     public EnemyPokemon spawnEnemy() {
         return new EnemyPokemon(PokemonList.valueOf(starter.getLevel()).get());
     }
-    
+
+    /**
+     * Player inputs management
+     * @param enemy enemyPokemon who will be attacked if chosen
+     * @return true if the player chose to defend and false if anything else is chose
+     */
     public boolean action(EnemyPokemon enemy) {
         Scanner input = new Scanner(System.in);
         System.out.println("\n What do you want to do ? \n Attack ? (enter A) \n Defend ? (enter D) \n Heal ? (enter H) \n");

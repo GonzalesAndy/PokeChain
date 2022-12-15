@@ -100,7 +100,7 @@ public class Score {
     }
 
     /**
-     * Getters for score
+     * Getter for score
      * @return score as an int
      */
     public int getScore() {
