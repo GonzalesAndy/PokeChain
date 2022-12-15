@@ -14,7 +14,7 @@ public class Combat {
      * @param player Score and name registration for the game
      * @throws IOException Warn when an error occured while file write
      */
-    public Combat(AllyPokemon starter, Score player) throws IOException {
+    private Combat(AllyPokemon starter, Score player) throws IOException {
         this.starter = starter;
         this.player = player;
         fight();
