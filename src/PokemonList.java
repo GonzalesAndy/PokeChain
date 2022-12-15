@@ -28,7 +28,7 @@ public enum PokemonList {
     private final int level;
     private final double coeffAttack;
     private final double coeffHP;
-    private double critProba;
+    private final double critProba;
 
 
     PokemonList(int level , double coeffAttack, double coeffHP, double critProba) {

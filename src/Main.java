@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Score.showScoreboard();
         Scanner scanner = new Scanner(System.in);
-        String playerUsername = "";
+        String playerUsername;
         do {
             System.out.println("Write your player name with a lenght less than 9 !");
             playerUsername = scanner.nextLine();
