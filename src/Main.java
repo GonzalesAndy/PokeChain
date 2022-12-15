@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 /**
  * Class allowing to start the game
+ * @hidden
  */
 public class Main {
     /**
