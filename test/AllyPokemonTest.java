@@ -67,7 +67,9 @@ class AllyPokemonTest {
     void assertThatAllyPokemonHasGoodHpRemaining(){
         GrassType turtwig = new GrassType(5);
         EnemyPokemon zubat = new EnemyPokemon(PokemonList.ZUBAT);
-        zubat.attack(turtwig);
+        while(turtwig.getLostHp() != 1){
+            zubat.attack(turtwig);
+        }
         assertEquals(zubat.getAttackDmg(), turtwig.getLostHp());
 }
 
@@ -78,7 +80,7 @@ class AllyPokemonTest {
         while(zubat.getLostHp() == 0){
             turtwig.attack(zubat);
         }
-        assertEquals(turtwig.getLevel()*2, zubat.getLostHp()); //On vérifie que les pv perdus valent au niveau de turtwug * son coeff d'attaque (2)
+        assertEquals(turtwig.getLevel()*2.5, zubat.getLostHp()); //On vérifie que les pv perdus valent au niveau de turtwug * son coeff d'attaque (2)
     }
 
     @org.junit.jupiter.api.Test
@@ -91,4 +93,6 @@ class AllyPokemonTest {
         }
         assertEquals(charmander.isAlive(), false); // Level 25 * AtckCoeff 3.0 = 75 < 76 Hp, can only kill with critical
     }
+
+
 }
