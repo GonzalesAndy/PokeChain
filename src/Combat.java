@@ -73,6 +73,7 @@ public class Combat {
         }
         player.addPlayerToFile();
         System.out.println("You lost cause your Pokemon died");
+        Score.showScoreboard();
     }
 
     /**
