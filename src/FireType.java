@@ -14,6 +14,9 @@ public class FireType extends AllyPokemon{
 
     private final List<Boolean> evolutionState = new ArrayList<>();
 
+    /**
+     * Class used to manage the ally pokemons with fire type
+     */
     public FireType(int level) {
         super(level);
         super.setHp(getLevel()*coeffHp);
