@@ -3,7 +3,7 @@
 
 ## Nécessité
 
- - Un terminal prenant en charge "ANSI Escape Code" utilisé notamment pour donner de la gaîté à ce terminal en ajoutant des couleurs. 
+ - Un terminal prenant en charge "**ANSI Escape Code**" utilisé notamment pour donner de la gaîté à ce terminal en ajoutant des couleurs. 
 
 ## Manuel d'utilisation
 Afin de lancer notre jeu il suffira, de lancer la fonction **main** de la classe **Main.java**
