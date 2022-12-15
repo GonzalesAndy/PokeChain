@@ -1,3 +1,6 @@
+/**
+ * Class used to manage all of the ally pokemons
+ */
 public abstract class AllyPokemon implements Pokemon<EnemyPokemon>{
     private int level;
 

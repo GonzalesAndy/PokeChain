@@ -2,8 +2,10 @@ import java.lang.Math;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class used to manage the ally pokemons with grass type
+ */
 public class GrassType extends AllyPokemon{
-
 
     private final double bonusHP = 0.5;
     private double coeffAttack = 2.5;
@@ -12,6 +14,10 @@ public class GrassType extends AllyPokemon{
 
     private final List<Boolean> evolutionState = new ArrayList<>();
 
+    /**
+     * Class constructor of GrassType
+     * @param level that corresponds to the level of the ally pokemon used
+     */
     public GrassType(int level) {
         super(level);
         super.setHp(getLevel()*coeffHp);

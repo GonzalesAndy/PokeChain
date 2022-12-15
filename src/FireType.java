@@ -2,6 +2,9 @@ import java.lang.Math;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class used to manage the ally pokemons with fire type
+ */
 public class FireType extends AllyPokemon{
 
 
@@ -11,6 +14,10 @@ public class FireType extends AllyPokemon{
 
     private final List<Boolean> evolutionState = new ArrayList<>();
 
+    /**
+     * Class constructor of FireType
+     * @param level that corresponds to the level of the ally pokemon used
+     */
     public FireType(int level) {
         super(level);
         super.setHp(getLevel()*coeffHp);
