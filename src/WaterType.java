@@ -6,8 +6,8 @@ public class WaterType extends AllyPokemon{
 
 
     private final double bonusAccuracy = 0.1;
-    private double coeffAttack = 2;
-    private double coeffHp = 2;
+    private double coeffAttack = 2.5;
+    private double coeffHp = 2.5;
     private double accuracy = 0.3-bonusAccuracy;
 
     private final List<Boolean> evolutionState = new ArrayList<>();
@@ -29,16 +29,16 @@ public class WaterType extends AllyPokemon{
                     System.out.println("Your pokemon has evolved to Marshtomp \n");
                     super.setName("Marshtomp");
                     super.setAttackName("Surf");
-                    coeffHp = 3;
-                    coeffAttack = 2.5;
-                    accuracy = 0.2-bonusAccuracy;
+                    coeffHp = 3.5;
+                    coeffAttack = 3.5;
+                    accuracy = 0.15-bonusAccuracy;
                     evolutionState.set(0,true);
                 } else if (this.getLevel() >= 15 && !evolutionState.get(1)) {
                     System.out.println("Your pokemon has evolved to Swampert \n");
                     super.setName("Swampert");
                     super.setAttackName("Hydroblast");
-                    coeffHp = 4;
-                    coeffAttack = 3;
+                    coeffHp = 5;
+                    coeffAttack = 5;
                     accuracy = 0.1-bonusAccuracy;
                     evolutionState.set(1,true);
                 }

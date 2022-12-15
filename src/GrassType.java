@@ -6,8 +6,8 @@ public class GrassType extends AllyPokemon{
 
 
     private final double bonusHP = 0.5;
-    private double coeffAttack = 2;
-    private double coeffHp = 2+bonusHP;
+    private double coeffAttack = 2.5;
+    private double coeffHp = 2.5+bonusHP;
     private double accuracy = 0.3;
 
     private final List<Boolean> evolutionState = new ArrayList<>();
@@ -29,16 +29,16 @@ public class GrassType extends AllyPokemon{
                     System.out.println("Your pokemon has evolved to Grotle \n");
                     super.setName("Grotle");
                     super.setAttackName("Energy Ball");
-                    coeffHp = 3+bonusHP;
-                    coeffAttack = 2.5;
-                    accuracy = 0.2;
+                    coeffHp = 3.5+bonusHP;
+                    coeffAttack = 3.5;
+                    accuracy = 0.15;
                     evolutionState.set(0,true);
                 } else if (this.getLevel() >= 15 && !evolutionState.get(1)) {
                     System.out.println("Your pokemon has evolved to Torterra \n");
                     super.setName("Torterra");
                     super.setAttackName("Leaf Storm");
-                    coeffHp = 4+bonusHP;
-                    coeffAttack = 3;
+                    coeffHp = 5+bonusHP;
+                    coeffAttack = 5;
                     accuracy = 0.1;
                     evolutionState.set(1,true);
                 }

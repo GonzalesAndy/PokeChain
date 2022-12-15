@@ -5,8 +5,8 @@ import java.util.List;
 public class FireType extends AllyPokemon{
 
 
-    private double coeffAttack = 2;
-    private double coeffHp = 2;
+    private double coeffAttack = 2.5;
+    private double coeffHp = 2.5;
     private double accuracy = 0.3;
 
     private final List<Boolean> evolutionState = new ArrayList<>();
@@ -28,16 +28,16 @@ public class FireType extends AllyPokemon{
                     System.out.println("Your pokemon has evolved to Charmeleon \n");
                     super.setName("Charmeleon");
                     super.setAttackName("FlameThrower");
-                    coeffHp = 3;
-                    coeffAttack = 2.5;
-                    accuracy = 0.2;
+                    coeffHp = 3.5;
+                    coeffAttack = 3.5;
+                    accuracy = 0.15;
                     evolutionState.set(0,true);
                 } else if (this.getLevel() >= 15 && !evolutionState.get(1)) {
                     System.out.println("Your pokemon has evolved to Charizard \n");
                     super.setName("Charizard");
                     super.setAttackName("Inferno");
-                    coeffHp = 4;
-                    coeffAttack = 3;
+                    coeffHp = 5;
+                    coeffAttack = 5;
                     accuracy = 0.1;
                     evolutionState.set(1,true);
                 }
@@ -54,7 +54,7 @@ public class FireType extends AllyPokemon{
         }
         else {
             System.out.println(this.getName()+" use "+ this.getAttackName()+"!");
-            double bonusDamage = 1.0;
+            double bonusDamage = 5.0;
             enemyPokemon.setLostHp(getLostHp()+((coeffAttack*super.getLevel()+ bonusDamage)));
         }
     }
