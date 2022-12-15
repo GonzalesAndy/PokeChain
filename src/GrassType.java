@@ -9,7 +9,7 @@ public class GrassType extends AllyPokemon{
 
     private final double bonusHP = 0.5;
     private double coeffAttack = 2.5;
-    private double coeffHp = 2.5+bonusHP;
+    private double coeffHp = 2+bonusHP;
     private double accuracy = 0.3;
 
     private final List<Boolean> evolutionState = new ArrayList<>();
@@ -35,7 +35,7 @@ public class GrassType extends AllyPokemon{
                     System.out.println("\n" + ConsoleColors.PURPLE_BOLD + "Your pokemon has evolved to Grotle \n" + ConsoleColors.RESET);
                     super.setName("Grotle");
                     super.setAttackName("Energy Ball");
-                    this.setCoeffHp(3.5+bonusHP);
+                    this.setCoeffHp(2.5+bonusHP);
                     super.setHp(getLevel()*coeffHp);
                     coeffAttack = 3.5;
                     accuracy = 0.15;
@@ -44,7 +44,7 @@ public class GrassType extends AllyPokemon{
                     System.out.println("\n" + ConsoleColors.PURPLE_BOLD + "Your pokemon has evolved to Torterra \n" + ConsoleColors.RESET);
                     super.setName("Torterra");
                     super.setAttackName("Leaf Storm");
-                    this.setCoeffHp(5+bonusHP);
+                    this.setCoeffHp(3+bonusHP);
                     super.setHp(getLevel()*coeffHp);
                     coeffAttack = 5;
                     accuracy = 0.1;
