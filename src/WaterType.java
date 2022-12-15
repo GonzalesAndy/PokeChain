@@ -34,7 +34,7 @@ public class WaterType extends AllyPokemon{
                     accuracy = 0.15-bonusAccuracy;
                     evolutionState.set(0,true);
                 } else if (this.getLevel() >= 15 && !evolutionState.get(1)) {
-                    System.out.println("\n" + "Your pokemon has evolved to Swampert \n");
+                    System.out.println("\n" + ConsoleColors.PURPLE_BOLD + "Your pokemon has evolved to Swampert \n" + ConsoleColors.RESET);
                     super.setName("Swampert");
                     super.setAttackName("Hydroblast");
                     coeffHp = 5;
