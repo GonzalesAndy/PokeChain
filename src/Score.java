@@ -74,4 +74,8 @@ public class Score {
         }
         System.out.println(" ___________________________");
     }
+
+    public int getScore() {
+        return score;
+    }
 }

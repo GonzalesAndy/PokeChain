@@ -94,5 +94,23 @@ class AllyPokemonTest {
         assertEquals(charmander.isAlive(), false); // Level 25 * AtckCoeff 3.0 = 75 < 76 Hp, can only kill with critical
     }
 
+    @org.junit.jupiter.api.Test
+    void assertThatScoreWork(){
+        Score scoreBoard = new Score("LUCAS18");
+        for (int i=0; i<3; i++){
+            scoreBoard.addScore();
+        }
+        assertEquals(scoreBoard.getScore(), 3); // 3 score points
+    }
+
+    @org.junit.jupiter.api.Test
+    void assertThatWinSreakWork(){
+        Score scoreBoard = new Score("LUCAS18");
+        for (int i=0; i<5; i++){
+            scoreBoard.addScore();
+        }
+        assertEquals(scoreBoard.getScore(), 6); // 5 score points + 1 from the 5 win streaks
+    }
+
 
 }
